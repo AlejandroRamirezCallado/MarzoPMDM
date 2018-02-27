@@ -33,11 +33,21 @@ public class LoginFragment extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        View v=inflater.inflate(R.layout.fragment_login, container, false);
+        etUsername=v.findViewById(R.id.etusername);
+        etPassword=v.findViewById(R.id.etpassword);
+        btnLogin=v.findViewById(R.id.btnlogin);
+        btnRegistrarse=v.findViewById(R.id.btnregistrarse);
+        events = new LoginFragmentEvents(this);
+        btnLogin.setOnClickListener(events);
+        btnRegistrarse.setOnClickListener(events);
+
+        return v;
     }
 
 }
@@ -46,7 +56,7 @@ class LoginFragmentEvents implements View.OnClickListener {
 
     private LoginFragment loginFragment;
 
-    public LoginFragmentEvents(LoginFragment fragment) {
+    public LoginFragmentEvents(LoginFragment fragment){
 
         this.loginFragment = fragment;
     }
@@ -55,12 +65,12 @@ class LoginFragmentEvents implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if (view.getId() == this.loginFragment.btnLogin.getId()) {
+        if(view.getId()==this.loginFragment.btnLogin.getId()){
             this.loginFragment.listener.loginFragmentLoginButtonClicked(
                     this.loginFragment.etUsername.getText().toString(),
                     this.loginFragment.etPassword.getText().toString());
 
-        } else if (view.getId() == this.loginFragment.btnRegistrarse.getId()) {
+        }else if(view.getId()==this.loginFragment.btnRegistrarse.getId()) {
             this.loginFragment.listener.loginFragmentRegisterButtonClicked();
         }
     }
