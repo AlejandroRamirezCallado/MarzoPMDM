@@ -28,6 +28,10 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void setListener(LoginFragmentListener listener){
+        this.listener=listener;
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +54,14 @@ class LoginFragmentEvents implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        
+
+        if (view.getId() == this.loginFragment.btnLogin.getId()) {
+            this.loginFragment.listener.loginFragmentLoginButtonClicked(
+                    this.loginFragment.etUsername.getText().toString(),
+                    this.loginFragment.etPassword.getText().toString());
+
+        } else if (view.getId() == this.loginFragment.btnRegistrarse.getId()) {
+            this.loginFragment.listener.loginFragmentRegisterButtonClicked();
+        }
     }
 }

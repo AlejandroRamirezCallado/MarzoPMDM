@@ -12,6 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class RegisterFragment extends Fragment {
+    public RegisterFragmentListener listener;
 
 
     public RegisterFragment() {

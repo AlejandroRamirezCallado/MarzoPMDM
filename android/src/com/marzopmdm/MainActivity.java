@@ -14,12 +14,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        loginFragment = (LoginFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentLogin);
+        registerFragment=(RegisterFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentRegister);
+        MainActivityEvents mainActivityEvents=new MainActivityEvents(this);
+
+        loginFragment.setListener(mainActivityEvents);
+        
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.show(loginFragment);
+        transaction.hide(registerFragment);
+        transaction.commit();
+
 
     }
 }
 class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentListener,FireBaseAdminListener{
     MainActivity mainActivity;
+    public MainActivityEvents(MainActivity mainActivity){
 
+        this.mainActivity=mainActivity;
+    }
     @Override
     public void fireBaseAdmin_RegisterOK(boolean blOK) {
 
@@ -33,11 +48,16 @@ class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentList
     @Override
     public void loginFragmentLoginButtonClicked(String sUser, String sPassword) {
 
+
+
     }
 
     @Override
     public void loginFragmentRegisterButtonClicked() {
-
+        FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+        transaction.hide(mainActivity.loginFragment);
+        transaction.show(mainActivity.registerFragment);
+        transaction.commit();
     }
 
     @Override
