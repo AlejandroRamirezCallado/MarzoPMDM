@@ -26,7 +26,7 @@ public class ListaMensajeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_lista_mensaje.container, false);
+        View v = inflater.inflate(R.layout.fragment_lista_mensaje,container, false);
         recyclerView=v.findViewById(R.id.listamensajes);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
