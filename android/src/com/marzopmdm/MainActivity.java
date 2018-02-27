@@ -71,6 +71,10 @@ class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentList
 
     @Override
     public void registerFragmentBtnCancelarClicked() {
+        FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+        transaction.show(mainActivity.loginFragment);
+        transaction.hide(mainActivity.registerFragment);
+        transaction.commit();
 
     }
 }

@@ -42,10 +42,11 @@ public class FireBaseAdmin {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
-
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+                            listener.fireBaseAdmin_RegisterOK(true);
                         }
                         else {
-                            
+                            listener.fireBaseAdmin_RegisterOK(false);
                         }
 
 
