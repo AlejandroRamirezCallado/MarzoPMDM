@@ -6,11 +6,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.marzopmdm.FBObjects.Mensaje;
+
+import java.util.ArrayList;
+
 /**
  * Created by alejandro on 27/2/18.
  */
 
 public class ListaMensajesAdapter extends RecyclerView.Adapter<MensajeViewHolder> {
+
+    private ArrayList<Mensaje> mensajes;
+
+
+    public ListaMensajesAdapter(ArrayList<Mensaje> mensajes){
+        this.mensajes=mensajes;
+
+    }
+
+
     @Override
     public MensajeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.celda_mensaje_layout, null);
@@ -34,5 +48,6 @@ class MensajeViewHolder extends RecyclerView.ViewHolder {
 
     public MensajeViewHolder(View itemView) {
         super(itemView);
+        textomensaje=itemView.findViewById(R.id.textomensaje);
     }
 }
