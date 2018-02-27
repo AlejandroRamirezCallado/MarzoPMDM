@@ -7,19 +7,24 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.firebase.database.DataSnapshot;
 
 public class SecondActivity extends AppCompatActivity {
-   // ListaFragment listaFragmentMensajes;
+   ListaMensajeFragment listaMensajeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        SecondActivityEvents events = new SecondActivityEvents();
+        SecondActivityEvents events = new SecondActivityEvents(this);
         DataHolder.instance.fireBaseAdmin.setListener(events);
+
+        listaMensajeFragment=(ListaMensajeFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentListaMensajes);
+
+        DataHolder.instance.fireBaseAdmin.descargarYObservarRama("messages");
+
 
     }
 
 }
-class class SecondActivityEvents implements FireBaseAdminListener{
+class SecondActivityEvents implements FireBaseAdminListener{
     SecondActivity secondActivity;
 
     public SecondActivityEvents(SecondActivity secondActivity){
@@ -28,7 +33,9 @@ class class SecondActivityEvents implements FireBaseAdminListener{
 
 
 
-    @Override
+
+
+        @Override
     public void fireBaseAdmin_RegisterOK(boolean blOK) {
 
     }
