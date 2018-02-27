@@ -6,12 +6,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class LoginFragment extends Fragment {
+
+    public EditText etUsername;
+    public EditText etPassword;
+    public Button  btnLogin;
+    public Button btnRegistrarse;
+
+    public LoginFragmentEvents events;
+    public LoginFragmentListener listener;
 
 
     public LoginFragment() {
@@ -26,4 +36,20 @@ public class LoginFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
+}
+
+class LoginFragmentEvents implements View.OnClickListener {
+
+    private LoginFragment loginFragment;
+
+    public LoginFragmentEvents(LoginFragment fragment) {
+
+        this.loginFragment = fragment;
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        
+    }
 }

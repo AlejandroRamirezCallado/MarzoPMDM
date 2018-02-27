@@ -20,5 +20,10 @@ public class FireBaseAdmin {
        // myRefRaiz= database.getReference();
     }
 
+    public void setListener(FireBaseAdminListener listener){
+
+        this.listener=listener;
+    }
+
 
 }
