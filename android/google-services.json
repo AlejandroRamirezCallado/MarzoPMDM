@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "703400225469",
+    "firebase_url": "https://examenmarzo-d89dd.firebaseio.com",
+    "project_id": "examenmarzo-d89dd",
+    "storage_bucket": "examenmarzo-d89dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703400225469:android:6cb8f7167b80bf14",
+        "android_client_info": {
+          "package_name": "com.marzopmdm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703400225469-b6lvko6c0ghv28jro9mh0t1vgmcek9bs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXBO4J8RYYlQhRA5JBfhPT2gxjbDfjrYc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
