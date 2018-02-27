@@ -3,6 +3,7 @@ package com.marzopmdm;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +41,7 @@ class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentList
     }
     @Override
     public void fireBaseAdmin_RegisterOK(boolean blOK) {
+        Log.v("MainActivityEvents", "Resultado del registro: " + blOK);
 
     }
 
