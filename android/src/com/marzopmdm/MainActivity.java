@@ -11,5 +11,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
+class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentListener,FireBaseAdminListener{
 
+    @Override
+    public void fireBaseAdmin_RegisterOK(boolean blOK) {
+
+    }
+
+    @Override
+    public void fireBaseAdmin_LoginOK(boolean blOK) {
+
+    }
+
+    @Override
+    public void loginFragmentLoginButtonClicked(String sUser, String sPassword) {
+
+    }
+
+    @Override
+    public void loginFragmentRegisterButtonClicked() {
+
+    }
+
+    @Override
+    public void registerFragmentBtnAceptarClicked(String sUser, String sPass) {
+        
+    }
+
+    @Override
+    public void registerFragmentBtnCancelarClicked() {
+
+    }
+}
 
