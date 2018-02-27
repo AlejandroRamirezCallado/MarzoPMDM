@@ -66,7 +66,13 @@ class RegisterFragmentEvents implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-       
+        if(view.getId()==this.registerFragment.btnAceptar.getId()){
+            this.registerFragment.listener.registerFragmentBtnAceptarClicked(
+                    registerFragment.etuserreg.getText().toString(),
+                    registerFragment.etpassreg.getText().toString());
+        }else if(view.getId()==this.registerFragment.btnCancelar.getId()){
+            this.registerFragment.listener.registerFragmentBtnCancelarClicked();
+        }
 
     }
 }

@@ -8,6 +8,7 @@ public class MainActivity extends AppCompatActivity {
 
     LoginFragment loginFragment;
     RegisterFragment registerFragment;
+    FireBaseAdmin fireBaseAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         transaction.hide(registerFragment);
         transaction.commit();
 
+        fireBaseAdmin = new FireBaseAdmin();
+        fireBaseAdmin.setListener(mainActivityEvents);
 
     }
 }
@@ -62,6 +65,7 @@ class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentList
 
     @Override
     public void registerFragmentBtnAceptarClicked(String sUser, String sPass) {
+        DataHolder.instance.fireBaseAdmin.registerConEmailYPassword(sUser, sPass, mainActivity);
 
     }
 
