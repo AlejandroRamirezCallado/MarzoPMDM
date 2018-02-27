@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.firebase.database.DataSnapshot;
+
 public class MainActivity extends AppCompatActivity {
 
     LoginFragment loginFragment;
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         DataHolder.instance.fireBaseAdmin.setListener(mainActivityEvents);
 
         fireBaseAdmin.setListener(mainActivityEvents);
+
+        DataHolder.instance.fireBaseAdmin.loginConEmailYPassword("hola@hola.com", "1234567890", this);
+        //DataHolder.instance.fireBaseAdmin.descargarYObservarRama("messages");
 
     }
 }
@@ -69,6 +74,21 @@ class MainActivityEvents implements  LoginFragmentListener, RegisterFragmentList
 
     @Override
     public void fireBaseAdmin_LoginOK(boolean blOK) {
+        Log.v("MAINACTIVITYEVENTS", "RESULTADO DE REGISTER" + blOK);
+        if(blOK){
+            Intent intent = new Intent(mainActivity, SecondActivity.class);
+            mainActivity.startActivity(intent);
+            mainActivity.finish();
+
+        }
+        else {
+
+        }
+
+    }
+
+    @Override
+    public void fireBaseAdmin_RamaDescargargada(String rama, DataSnapshot dataSnapshot) {
 
     }
 
