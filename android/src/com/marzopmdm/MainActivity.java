@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     LoginFragment loginFragment;
     RegisterFragment registerFragment;
     FireBaseAdmin fireBaseAdmin;
+    FireBaseAdminListener fireBaseAdminListener;
 
 
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
         fireBaseAdmin = new FireBaseAdmin();
+        DataHolder.instance.fireBaseAdmin.setListener(mainActivityEvents);
+
         fireBaseAdmin.setListener(mainActivityEvents);
 
     }
