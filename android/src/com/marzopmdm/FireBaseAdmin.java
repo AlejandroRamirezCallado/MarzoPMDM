@@ -18,11 +18,12 @@ public class FireBaseAdmin {
     private FirebaseAuth mAuth;
     public FireBaseAdminListener listener;
     public FirebaseUser user;
+    FirebaseDatabase database;
 
     public FireBaseAdmin(){
 
         mAuth = FirebaseAuth.getInstance();
-       // database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
        // myRefRaiz= database.getReference();
     }
 
@@ -47,6 +48,28 @@ public class FireBaseAdmin {
                         }
                         else {
                             listener.fireBaseAdmin_RegisterOK(false);
+                        }
+
+
+                    }
+                });
+    }
+    public void loginConEmailYPassword(String email, String pass, Activity activity){
+        mAuth.signInWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //Log.d("FirebaseAdmin", "createUserWithEmail:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (task.isSuccessful()) {
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+                            listener.fireBaseAdmin_LoginOK(true);
+                        }
+                        else {
+                            listener.fireBaseAdmin_LoginOK(false);
                         }
 
 
