@@ -14,12 +14,13 @@ public class ListaMensajesAdapter extends RecyclerView.Adapter<MensajeViewHolder
     @Override
     public MensajeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.celda_mensaje_layout, null);
-        return null;
+        MensajeViewHolder mensajeViewHolder = new MensajeViewHolder(view);
+        return mensajeViewHolder;
     }
 
     @Override
     public void onBindViewHolder(MensajeViewHolder holder, int position) {
-
+        holder.textomensaje.setText("Posicion"+position);
     }
 
     @Override

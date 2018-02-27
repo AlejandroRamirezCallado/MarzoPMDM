@@ -30,6 +30,9 @@ public class ListaMensajeFragment extends Fragment {
         recyclerView=v.findViewById(R.id.listamensajes);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
+        ListaMensajesAdapter listaMensajesAdapters = new ListaMensajesAdapter();
+        recyclerView.setAdapter(listaMensajesAdapters);
+
 
         return v;
     }
